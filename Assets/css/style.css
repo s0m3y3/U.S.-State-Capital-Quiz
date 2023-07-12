@@ -1,0 +1,172 @@
+/* *,
+*::before,
+*::after {
+  box-sizing: border-box;
+} */
+
+body{
+  background: #ddb8b8;
+}
+
+.game-container{
+  background: rgb(224, 224, 206);
+  border-radius: 10px;
+  width: 90%;
+  max-width: 600px;
+  margin: 100px auto;
+  padding: 20px;
+  box-shadow: 3px 3px rgb(100, 100, 90);
+}
+
+.game{
+display:flex;
+justify-content: space-between;
+}
+
+h1{
+  font-size: 18px;
+  color:rgb(224, 66, 66);
+  text-align: right;
+  padding:5px;
+  margin: 0px;
+  font-weight: 20px;
+  padding: 20px;
+}
+h2{
+font-size: 40px;
+}
+
+.intro{
+  font-size: 18px;
+  text-align: center;
+  padding:5px;
+  margin: 0px;
+  font-weight: 20px;
+  padding: 20px;
+  display: contents;
+}
+/* #intro2{
+  display: contents;
+} */
+
+.container{
+  display:none; 
+} 
+#container1{
+  display:none; 
+}
+
+.btn{
+  padding: 10px;
+  font-weight: 20px;
+  background: rgb(163, 163, 158);
+  color:black;
+  border: 5px;
+  border-color: brown;
+  border-radius: 10px;
+  margin: 15px;
+  text-align: left;
+  cursor: pointer;
+  transition: .3s;
+  /* display: none; */
+}
+.btn:hover{
+  background: white;
+}
+
+#start-btn{
+  padding: 10px;
+  font-size: 40px;
+  background: rgb(163, 163, 158);
+  color:black;
+  border: 10px;
+  border-radius: 10px;
+  margin: 20px;
+  text-align: center;
+  cursor: pointer;
+  transition: .3s;
+}
+#start-btn:hover{
+  background: white;
+}
+
+
+/* body {
+  font-size: 18px;
+  font-family: "Roboto", sans-serif;
+  background-color: #eff5f8;
+  color: #001b44;
+}
+
+
+body.h1 { 
+    text-align: right;
+    text-size-adjust: 20px;
+    display:flex;
+    text-align: right;
+}
+
+li {
+  padding: 10px;
+}
+
+button {
+  background-color: #486ca1;
+  border-radius: 8px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 1.1em;
+  max-width: 250px;
+  padding: 10px;
+  text-align: center;
+  transition-duration: 0.15s;
+  transition-property: background-color;
+  transition-timing-function: linear;
+  margin: 0.6em auto;
+  display: block;
+}
+
+button.ol.li{
+    display: flex; 
+    flex-direction: column;
+}
+
+label {
+  color: #212121;
+}
+
+select {
+  font-size: 30px;
+  width: 100%;
+  margin-top: 10px;
+  background-color: whitesmoke;
+}
+
+.container{
+display:flex;
+background-color:	#acac3a;
+}
+.card {
+  background-color:	#FFFFE0;
+  border: 1px solid #eceff1;
+  border-radius: 8px;
+  box-shadow: rgba(60, 64, 67, 2) 0 1px 2px 0,
+    rgba(60, 64, 67, 0.15) 0 2px 4px 3px;
+  margin: 40px 20px;
+  padding: 20px;
+  width: 40vw;
+  float: left;
+}
+
+.card::after {
+  content: " ";
+  display: block;
+  clear: both;
+}
+*/
+
+/* @media only screen and (max-width: 780px) {
+  .card {
+    width: 80vw;
+  }
+}  */

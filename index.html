@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>U.S. State Capital Quiz</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./Assets/css/style.css" />
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"/> -->
+</head>
+
+<body>  
+    <div class="game-container">
+        <div class="game">
+            <h2> U.S. State Capital Quiz</h2>
+            <h1 class="countdowntimer"></h1>     <!-- for gametimer -->
+        </div>
+        <main>
+
+            <div class = "intro" id="intro2">
+                <p>You have 60 seconds! There are 10 multiple choice questions.</p>
+                <li><strong> Wrong </strong> answer will penaltize you 5 seconds. </li>
+                <li><strong>Right</strong> answer  will reward 5 points.</li> 
+                <li>Score = (time left-over) + (5pts for each right answer).  </li> 
+                <div id="start-btn"> Start! 
+                </div>
+
+            </div>
+
+
+            <div class="container" id="container1">
+                <h3 id="question">Quiz question </h3>
+                <div id="answer-btn">
+                    <ol>
+                        <li class="btn" id="ans1">(answer1)</li>
+                        <li class="btn" id="ans2">(answer2)</li>
+                        <li class="btn" id="ans3">answer3</li>
+                        <li class="btn" id="ans4">answer4</li>
+                    </ol>
+                </div>
+                <p id=result></p>
+            </div>
+
+        </main>
+    </div>
+
+    <script src="./Assets/javascript/script.js"></script>
+</body>
+</html>
