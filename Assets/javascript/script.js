@@ -7,7 +7,7 @@ const answer3 = document.querySelector("#ans3");
 const answer4 = document.querySelector("#ans4");
 let ANS = [answer1, answer2,answer3,answer4];
 let questionindex = 0;
-let score = 0;
+let userscore = 0;
 
 //Questions & Answer List for the quiz
 let QandA = [ 
@@ -77,8 +77,39 @@ function setTimer() { //set timer for quiz, 60 seconds. Stops at zero.
   }, 1000);
 }
 
-// function finalscore(){  //program me!!! 
-// }
+function finalscore(finalplayer,finalplayerscore){
+  timer.textContent =""; // removes timer.
+  document.getElementById('container1').style.display = "none"; //hide quiz game.
+  document.getElementById('finalscore').style.display = "contents"; //reveal final-score screen
+  let abc = document.getElementById('currentuserdata')
+  abc.textContent = finalplayer+" "+ finalplayerscore;
+
+
+  //get all the players and their scores from local storage
+  let userdata = {
+    'player': userName,
+    'score': userscore,
+  };
+  let users = JSON.parse(localStorage.getItem("userdata"));
+
+  //my code below
+  localStorage.setItem("player",userName);
+  localStorage.setItem("score",userscore);
+  let currentuser = document.querySelector("currentuserdata");
+  currentuser.textContent = userName + " " + userscore; 
+
+    
+  //if localstorage have players, then add to the existing lists
+  if (users) {
+    users.push(item);
+    //if localstorage is empty, we will need to create a new list
+  } else {
+    users = [];
+    users.push(item);
+  }
+
+  localStorage.setItem("users", JSON.stringify(users));
+}
 
 //This display question & answers list in html
 function DisplayQuestionAnswers (){
@@ -99,9 +130,9 @@ setTimeout(()=>{
 selectAnswer.addEventListener("click",function(event){
   let useranswer = event.target; 
 
-  if(questionindex < QandA.length){  //might be wrong.
+  if(questionindex < QandA.length-1){  //might be wrong.
     if(useranswer.textContent == QandA[questionindex].correctanswer){
-      score +=5;
+      userscore +=5;
       result.style.color = "green";
       result.textContent = "CORRECT!!";
     }
@@ -115,49 +146,27 @@ selectAnswer.addEventListener("click",function(event){
   }
   else{
     let timerscore = 0;
-    if(secondsLeft>0){
+    if(secondsLeft>0){ 
       timerscore = secondsLeft;
     }
-    else{
+    else{//just incase timer goes negative due to bug.
       timerscore = 0;
     } 
-
-    score += timerscore;
-    // prompt("Enter your name: "); //need work
-    // console.log("last question score: "+ score);
-
-    let userName = prompt("Please enter you name.");
-
-    //get all the players and their scores from local storage
-    let item = {
-      player: userName,
-      score: timeEl.textContent,
-    };
-  
-    let users = JSON.parse(localStorage.getItem("users"));
-  
-    //if localstorage have players, then add to the existing lists
-    if (users) {
-      users.push(item);
-      //if localstorage is empty, we will need to create a new list
-    } else {
-      users = [];
-      users.push(item);
-    }
-  
-    localStorage.setItem("users", JSON.stringify(users));
+    userscore += timerscore;
+  let userName = prompt("Please enter you name.");
+  if(userName===""){userName = "anonymous";} //if name is blank, then "anonymous"
+    finalscore(userName,userscore);
   }
-  console.log("final score:" +score);
-  console.log("timerscore:" +timerscore);
+  // console.log("final score:" +userscore);
+  // console.log("timerscore:" +timerscore);
+  // delete me!!! ----------
 })
 
 //start-button. Initize the game. Hides the start menu items, and reveal contents of the quiz. 
 let selectStart = document.getElementById('start-btn');
 selectStart.onclick = function(){
-  console.log(document.getElementById('intro2'));
   document.getElementById('intro2').style.display = "none"; 
   document.getElementById('container1').style.display = "contents";
-  console.log('start button is working');
   setTimer();
   DisplayQuestionAnswers();
 }
