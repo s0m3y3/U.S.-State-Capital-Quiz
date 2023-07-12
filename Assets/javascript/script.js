@@ -57,9 +57,9 @@ let QandA = [
     correctanswer: "Dover"
   },
   Q10 = {
-    Quest: "What the capital of Massachusetts?",
-    ans: ["Atlanta","Tallahassee","Frankfort","Boston"],
-    correctanswer: "Boston"
+    Quest: "What the capital of Maine?",
+    ans: ["Atlanta","Tallahassee","Augusta","Frankfort"],
+    correctanswer: "Augusta"
   }
 
 ];
@@ -123,13 +123,35 @@ selectAnswer.addEventListener("click",function(event){
     } 
 
     score += timerscore;
-    prompt("Enter your name: "); //need work
-    console.log("last question score: "+ score);
+    // prompt("Enter your name: "); //need work
+    // console.log("last question score: "+ score);
+
+    let userName = prompt("Please enter you name.");
+
+    //get all the players and their scores from local storage
+    let item = {
+      player: userName,
+      score: timeEl.textContent,
+    };
+  
+    let users = JSON.parse(localStorage.getItem("users"));
+  
+    //if localstorage have players, then add to the existing lists
+    if (users) {
+      users.push(item);
+      //if localstorage is empty, we will need to create a new list
+    } else {
+      users = [];
+      users.push(item);
+    }
+  
+    localStorage.setItem("users", JSON.stringify(users));
   }
   console.log("final score:" +score);
   console.log("timerscore:" +timerscore);
 })
 
+//start-button. Initize the game. Hides the start menu items, and reveal contents of the quiz. 
 let selectStart = document.getElementById('start-btn');
 selectStart.onclick = function(){
   console.log(document.getElementById('intro2'));
@@ -140,29 +162,3 @@ selectStart.onclick = function(){
   DisplayQuestionAnswers();
 }
 
-if (questionindex == QandA.length - 1) {
-  let userName = prompt("Please enter you name.");
-
-  //get all the players and their scores from local storage
-  let item = {
-    player: userName,
-    score: timeEl.textContent,
-  };
-
-  let users = JSON.parse(localStorage.getItem("users"));
-
-  //if localstorage have players, then add to the existing lists
-  if (users) {
-    users.push(item);
-    //if localstorage is empty, we will need to create a new list
-  } else {
-    users = [];
-    users.push(item);
-  }
-
-  localStorage.setItem("users", JSON.stringify(users));
-  // Go from questionnaire view  to highscore view
-  navigateFromTo("questionnaire", "highscore");
-
-  // return;
-}

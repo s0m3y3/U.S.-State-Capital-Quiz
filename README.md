@@ -12,7 +12,7 @@ N/A
 
 ## Usage
 
-To brush up on your simple math. 
+Let's brush up on your state capitals knowledge! 
 
 ## Credits
 
@@ -21,8 +21,11 @@ N/A
 ## License
 Please refer to the LICENSE in the repo
 
+![image](./Assets/quiz_startgame.png)
+
 ##Links: 
 
-github resipoitory link: https://github.com/s0m3y3/PasswordGenerator/tree/main
+github repository link: https://github.com/s0m3y3/U.S.-State-Capital-Quiz
+/main
 
-website link: https://s0m3y3.github.io/PasswordGenerator/
+website link: https://s0m3y3.github.io/U.S.-State-Capital-Quiz/
