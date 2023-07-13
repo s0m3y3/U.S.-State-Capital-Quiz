@@ -78,37 +78,41 @@ function setTimer() { //set timer for quiz, 60 seconds. Stops at zero.
 }
 
 function finalscore(finalplayer,finalplayerscore){
-  timer.textContent =""; // removes timer.
+  timer.remove();
   document.getElementById('container1').style.display = "none"; //hide quiz game.
   document.getElementById('finalscore').style.display = "contents"; //reveal final-score screen
-  let abc = document.getElementById('currentuserdata')
-  abc.textContent = finalplayer+" "+ finalplayerscore;
+  
+  //delete the code below (will loop from local file) @@@@@@@@@@ 
+  let abc = document.getElementById('currentuserdata');  
+  abc.textContent = finalplayer;
+  let xyz = document.getElementById('htmluserscore');
+  xyz.textContent = finalplayerscore;
+  
+  let userdata = {
+    'player': finalplayer,
+    'score': finalplayerscore,
+  };
 
+  //below is just a test code.
+  let userdata00 = {
+    'player': players,
+    'score': scores,
+  };
 
   //get all the players and their scores from local storage
-  let userdata = {
-    'player': userName,
-    'score': userscore,
-  };
-  let users = JSON.parse(localStorage.getItem("userdata"));
+  let localscore = JSON.parse(localStorage.getItem("userdata",userdata));
+  console.log("local score storage: "+ localscore);
+  // JSON.parse(localStorage.getItem("userdata", userdata)));
 
-  //my code below
-  localStorage.setItem("player",userName);
-  localStorage.setItem("score",userscore);
-  let currentuser = document.querySelector("currentuserdata");
-  currentuser.textContent = userName + " " + userscore; 
-
-    
-  //if localstorage have players, then add to the existing lists
-  if (users) {
-    users.push(item);
-    //if localstorage is empty, we will need to create a new list
+  //if localstorage not empty, then add userdata to local lists
+  if (localscore !==null) {
+    localStorage.setItem('userdata',JSON.stringify(userdata));
+    //if localstorage is empty, push userdata to local. 
   } else {
-    users = [];
-    users.push(item);
+    localStorage.setItem('userdata',JSON.stringify(userdata));
   }
-
-  localStorage.setItem("users", JSON.stringify(users));
+  console.log("local score storage: "+ localscore);
+  // localStorage.setItem("users", JSON.stringify(users));
 }
 
 //This display question & answers list in html
@@ -124,7 +128,7 @@ function DisplayQuestionAnswers (){
 //work in progress. Phasing out "correct" or "Wrong" result. @@@@@@@@@@@@@@
 setTimeout(()=>{
     const sometext = document.getElementById('result');
-}, 2000);
+}, 1500);
 
 //eventlistener when user click on any four answers options.
 selectAnswer.addEventListener("click",function(event){
@@ -157,9 +161,6 @@ selectAnswer.addEventListener("click",function(event){
   if(userName===""){userName = "anonymous";} //if name is blank, then "anonymous"
     finalscore(userName,userscore);
   }
-  // console.log("final score:" +userscore);
-  // console.log("timerscore:" +timerscore);
-  // delete me!!! ----------
 })
 
 //start-button. Initize the game. Hides the start menu items, and reveal contents of the quiz. 
@@ -171,3 +172,4 @@ selectStart.onclick = function(){
   DisplayQuestionAnswers();
 }
 
+//delete me below:

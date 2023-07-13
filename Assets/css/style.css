@@ -32,8 +32,11 @@ h1{
   font-weight: 20px;
   padding: 20px;
 }
-h2{
+h2,{
 font-size: 40px;
+}
+h3{
+  font-size: 25px;
 }
 
 .intro{
@@ -89,4 +92,20 @@ display:none;
 }
 #start-btn:hover{
   background: white;
+}
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse:collapse;
+  width: 100%;
+  text-align: left;
+}
+td {
+  border: 1px solid #885d5d;
+  text-align: left;
+  padding: 10px;
+}
+
+tr:nth-child(even) {
+  background-color: #e09c9c;
 }
