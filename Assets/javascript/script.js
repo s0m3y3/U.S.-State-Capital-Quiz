@@ -77,43 +77,28 @@ function setTimer() { //set timer for quiz, 60 seconds. Stops at zero.
   }, 1000);
 }
 
-function finalscore(finalplayer,finalplayerscore){
+function finalscore(finalplayer, finalplayerscore) {
   timer.remove();
-  document.getElementById('container1').style.display = "none"; //hide quiz game.
-  document.getElementById('finalscore').style.display = "contents"; //reveal final-score screen
-  
-  //delete the code below (will loop from local file) @@@@@@@@@@ 
-  let abc = document.getElementById('currentuserdata');  
-  abc.textContent = finalplayer;
-  let xyz = document.getElementById('htmluserscore');
-  xyz.textContent = finalplayerscore;
+  document.getElementById('multipleChoice').style.display = "none"; // hide quiz game
+  document.getElementById('finalscore').style.display = "contents"; // reveal final-score screen
   
   let userdata = {
     'player': finalplayer,
     'score': finalplayerscore,
   };
 
-  //below is just a test code.
-  let userdata00 = {
-    'player': players,
-    'score': scores,
-  };
+  console.log(userdata);
 
-  //get all the players and their scores from local storage
-  let localscore = JSON.parse(localStorage.getItem("userdata",userdata));
-  console.log("local score storage: "+ localscore);
-  // JSON.parse(localStorage.getItem("userdata", userdata)));
+  // Get all the players and their scores from local storage
+  let localscore = JSON.parse(localStorage.getItem("userdata")) || [];
 
-  //if localstorage not empty, then add userdata to local lists
-  if (localscore !==null) {
-    localStorage.setItem('userdata',JSON.stringify(userdata));
-    //if localstorage is empty, push userdata to local. 
-  } else {
-    localStorage.setItem('userdata',JSON.stringify(userdata));
-  }
-  console.log("local score storage: "+ localscore);
-  // localStorage.setItem("users", JSON.stringify(users));
+  // Add userdata to local scores array
+  localscore.push(userdata);
+
+  // Update local storage with the new scores array
+  localStorage.setItem("userdata", JSON.stringify(localscore));
 }
+
 
 //This display question & answers list in html
 function DisplayQuestionAnswers (){
@@ -125,7 +110,7 @@ function DisplayQuestionAnswers (){
   }
 }
 
-//work in progress. Phasing out "correct" or "Wrong" result. @@@@@@@@@@@@@@
+//work in progress. Phasing out "correct" or "Wrong" result. 
 setTimeout(()=>{
     const sometext = document.getElementById('result');
 }, 1500);
@@ -167,9 +152,13 @@ selectAnswer.addEventListener("click",function(event){
 let selectStart = document.getElementById('start-btn');
 selectStart.onclick = function(){
   document.getElementById('intro2').style.display = "none"; 
-  document.getElementById('container1').style.display = "contents";
+  document.getElementById('multipleChoice').style.display = "contents";
   setTimer();
   DisplayQuestionAnswers();
 }
 
-//delete me below:
+//code to refresh page - (restart quiz) 
+let tryAgain = document.getElementById('tryAgain-btn');
+tryAgain.onclick = function(){
+  location.reload()
+}

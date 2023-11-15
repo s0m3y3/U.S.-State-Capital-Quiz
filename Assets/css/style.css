@@ -50,14 +50,18 @@ h3{
   /* default is display:contents */
 }
 
-.container{
+/* These are default hidden */
+.container,
+#multipleChoice,
+#finalscore
+{
   display:none; 
 } 
-#container1{
-  display:none; 
-}
 
-.btn{
+.btn,
+#start-btn,
+#tryAgain-btn
+{
   padding: 10px;
   font-weight: 20px;
   background: rgb(163, 163, 158);
@@ -70,27 +74,11 @@ h3{
   cursor: pointer;
   transition: .3s;
 }
-.btn:hover{
-  background: white;
-}
 
-#finalscore {
-display:none;
-}
-
-#start-btn{
-  padding: 10px;
-  font-size: 40px;
-  background: rgb(163, 163, 158);
-  color:black;
-  border: 10px;
-  border-radius: 10px;
-  margin: 20px;
-  text-align: center;
-  cursor: pointer;
-  transition: .3s;
-}
-#start-btn:hover{
+.btn:hover,
+#start-btn:hover,
+#tryAgain-btn:hover
+{
   background: white;
 }
 

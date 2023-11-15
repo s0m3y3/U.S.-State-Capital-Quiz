@@ -1,4 +1,5 @@
-# Math Quiz! 
+# U.S. State Capital Quiz! 
+Weclome! Test your U.S. State Capital knowledge! 
 
 ## Description
 
@@ -8,7 +9,7 @@ Given 60 seconds, there are 10 questions, with four multiple choice answers. A W
 
 ## Installation
 
-N/A
+None
 
 ## Usage
 
@@ -25,7 +26,6 @@ Please refer to the LICENSE in the repo
 
 ##Links: 
 
-github repository link: https://github.com/s0m3y3/U.S.-State-Capital-Quiz
-/main
+GitHub Repo: [Link](https://github.com/s0m3y3/U.S.-State-Capital-Quiz/main)
 
-website link: https://s0m3y3.github.io/U.S.-State-Capital-Quiz/
+Deployed site: [Link](https://s0m3y3.github.io/U.S.-State-Capital-Quiz/)
